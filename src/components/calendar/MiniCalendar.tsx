@@ -29,7 +29,7 @@ export function MiniCalendar({
   return (
     <div>
       <div className="mb-3 flex items-center justify-between pl-1">
-        <p className="text-[15px] font-semibold">
+        <p className="text-md font-semibold">
           {cap(monthName(cursor))} <span className="font-normal text-ink-3">{cursor.getFullYear()}</span>
         </p>
         <div className="flex">
@@ -41,7 +41,7 @@ export function MiniCalendar({
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-7 text-center text-[11px] font-medium text-ink-3">
+      <div className="grid grid-cols-7 text-center text-2xs font-medium text-ink-3">
         {WD.map((d, i) => (
           <span key={i} className="pb-2">
             {d}
@@ -60,7 +60,7 @@ export function MiniCalendar({
               key={key}
               onClick={() => onSelect(key)}
               className={cx(
-                'relative mx-auto grid h-9 w-full place-items-center text-[13px] tabular-nums transition',
+                'relative mx-auto grid h-9 w-full place-items-center text-ui tabular-nums transition',
                 inWeek && 'bg-surface-2',
                 inWeek && key === weekStart && 'rounded-l-xl',
                 inWeek && key === weekEnd && 'rounded-r-xl',

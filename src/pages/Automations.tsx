@@ -90,10 +90,10 @@ export default function Automations() {
           <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent-ink">
             <MessageCircle size={13} /> WhatsApp automático
           </span>
-          <h1 className="mt-4 text-[34px] font-semibold leading-[1.1] tracking-tight md:text-[44px]">
-            Automatiza tu <span className="font-serif font-normal italic text-accent-ink">agenda</span>
+          <h1 className="mt-4 text-4xl font-semibold md:text-5xl">
+            Automatiza tu <span className="serif-accent text-accent-ink">agenda</span>
           </h1>
-          <p className="mt-3 text-[15px] leading-relaxed text-ink-2 md:text-base">
+          <p className="mt-3 text-md leading-relaxed text-ink-2 md:text-base">
             Tus {t.clients} reciben confirmaciones y recordatorios por WhatsApp sin que tengas que escribir nada. Menos ausencias, menos mensajes a mano, más
             {' '}{t.appointments} cumplidas.
           </p>

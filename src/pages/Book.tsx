@@ -108,7 +108,7 @@ function BookFlow({ id }: { id: BusinessId }) {
         <span className="text-xs font-medium text-ink-3">Página pública de reservas · demo</span>
         <div className="ml-auto flex items-center gap-1">
           <ThemeButton />
-          <Link to="/demo/dashboard" onClick={() => !isActive && store.switchBusiness(id)} className="hidden rounded-full px-3 py-2 text-[13px] font-medium text-ink-2 hover:bg-surface-2 hover:text-ink sm:block">
+          <Link to="/demo/dashboard" onClick={() => !isActive && store.switchBusiness(id)} className="hidden rounded-full px-3 py-2 text-ui font-medium text-ink-2 hover:bg-surface-2 hover:text-ink sm:block">
             Ver panel del negocio →
           </Link>
         </div>
@@ -123,9 +123,9 @@ function BookFlow({ id }: { id: BusinessId }) {
               <span className="absolute -bottom-7 left-6 grid size-16 place-items-center rounded-[22px] bg-surface text-3xl shadow-soft">{tpl.emoji}</span>
             </div>
             <div className="px-6 pb-6 pt-10">
-              <h1 className="text-xl font-semibold tracking-tight">{data.settings.name}</h1>
+              <h1 className="text-xl font-semibold">{data.settings.name}</h1>
               <p className="text-sm text-ink-3">{tpl.tagline}</p>
-              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-[13px] text-ink-2">
+              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-ui text-ink-2">
                 <span className="flex items-center gap-1.5"><Star size={14} className="fill-current text-warn" /> 4.9 · 212 reseñas</span>
                 <span className="flex items-center gap-1.5"><MapPin size={14} /> Roma Norte, CDMX</span>
                 <span className="flex items-center gap-1.5"><Clock size={14} /> Lun–Sáb · {data.settings.openHour}:00–{data.settings.closeHour}:00</span>
@@ -135,7 +135,7 @@ function BookFlow({ id }: { id: BusinessId }) {
 
           {step > 0 && step < 4 && service && (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="hidden rounded-[28px] bg-surface p-5 shadow-soft lg:block">
-              <p className="mb-3 text-[13px] font-semibold">Tu {t.appointment}</p>
+              <p className="mb-3 text-ui font-semibold">Tu {t.appointment}</p>
               <SummaryRow label="Servicio" value={`${service.name} · ${duration(service.duration)}`} onEdit={() => setStep(0)} />
               {chosenStaff && !singleStaff && <SummaryRow label={cap(t.staff)} value={chosenStaff.name} onEdit={() => setStep(1)} />}
               {staffId === 'any' && !slot && <SummaryRow label={cap(t.staff)} value="Sin preferencia" onEdit={() => setStep(1)} />}
@@ -182,7 +182,7 @@ function BookFlow({ id }: { id: BusinessId }) {
             >
               {step === 0 && (
                 <section>
-                  <h2 className="mb-4 text-2xl font-semibold tracking-tight">¿Qué te gustaría reservar?</h2>
+                  <h2 className="mb-4 text-2xl font-semibold">¿Qué te gustaría reservar?</h2>
                   <div className="grid gap-3 sm:grid-cols-2">
                     {services.map((s) => (
                       <button
@@ -195,7 +195,7 @@ function BookFlow({ id }: { id: BusinessId }) {
                         </span>
                         <span className="min-w-0 flex-1">
                           <span className="block font-medium">{s.name}</span>
-                          <span className="block text-[13px] text-ink-3">{duration(s.duration)}</span>
+                          <span className="block text-ui text-ink-3">{duration(s.duration)}</span>
                         </span>
                         <span className="text-right">
                           <span className="block font-semibold tabular-nums">{money(s.price)}</span>
@@ -209,7 +209,7 @@ function BookFlow({ id }: { id: BusinessId }) {
 
               {step === 1 && (
                 <section>
-                  <h2 className="mb-4 text-2xl font-semibold tracking-tight">¿Con quién?</h2>
+                  <h2 className="mb-4 text-2xl font-semibold">¿Con quién?</h2>
                   <div className="grid gap-3 sm:grid-cols-2">
                     <StaffOption
                       selected={staffId === 'any'}
@@ -234,7 +234,7 @@ function BookFlow({ id }: { id: BusinessId }) {
 
               {step === 2 && (
                 <section>
-                  <h2 className="mb-4 text-2xl font-semibold tracking-tight">Elige día y hora</h2>
+                  <h2 className="mb-4 text-2xl font-semibold">Elige día y hora</h2>
                   <div className="scrollbar-none -mx-4 flex gap-2 overflow-x-auto px-4 pb-2 lg:mx-0 lg:px-0">
                     {days.map((d) => {
                       const dt = fromKey(d)
@@ -245,9 +245,9 @@ function BookFlow({ id }: { id: BusinessId }) {
                           onClick={() => { setDate(d); setSlot(null) }}
                           className={cx('flex w-[60px] shrink-0 flex-col items-center gap-0.5 rounded-[20px] py-3 transition', sel ? 'bg-accent text-accent-fg shadow-[0_8px_18px_-8px_var(--accent)]' : 'bg-surface text-ink shadow-soft hover:bg-surface-2')}
                         >
-                          <span className={cx('text-[11px] font-medium uppercase', sel ? 'opacity-80' : 'text-ink-3')}>{dayShort(dt)}</span>
+                          <span className={cx('text-2xs font-medium uppercase', sel ? 'opacity-80' : 'text-ink-3')}>{dayShort(dt)}</span>
                           <span className="text-lg font-semibold tabular-nums">{dt.getDate()}</span>
-                          <span className={cx('text-[10px]', sel ? 'opacity-80' : 'text-ink-3')}>{monthShort(dt)}</span>
+                          <span className={cx('text-2xs', sel ? 'opacity-80' : 'text-ink-3')}>{monthShort(dt)}</span>
                         </button>
                       )
                     })}
@@ -288,7 +288,7 @@ function BookFlow({ id }: { id: BusinessId }) {
 
               {step === 3 && (
                 <section className="max-w-xl">
-                  <h2 className="mb-1 text-2xl font-semibold tracking-tight">Tus datos</h2>
+                  <h2 className="mb-1 text-2xl font-semibold">Tus datos</h2>
                   <p className="mb-5 text-sm text-ink-3">Te enviaremos la confirmación y un recordatorio por WhatsApp.</p>
                   <div className="flex flex-col gap-4 rounded-[28px] bg-surface p-5 shadow-soft md:p-6">
                     <Field label="Nombre">
@@ -318,7 +318,7 @@ function BookFlow({ id }: { id: BusinessId }) {
                     >
                       <Check size={30} strokeWidth={2.6} />
                     </motion.span>
-                    <h2 className="mt-6 text-3xl font-semibold tracking-tight md:text-4xl">
+                    <h2 className="mt-6 text-3xl font-semibold md:text-4xl">
                       ¡Listo, {firstName(name)}!
                     </h2>
                     <p className="mt-2 text-ink-2">
@@ -408,7 +408,7 @@ function StaffOption({ selected, onClick, icon, title, body }: { selected: boole
       {icon}
       <span className="min-w-0 flex-1">
         <span className="block font-medium">{title}</span>
-        <span className="block text-[13px] text-ink-3">{body}</span>
+        <span className="block text-ui text-ink-3">{body}</span>
       </span>
       <ChevronRight size={16} className="text-ink-3" />
     </button>

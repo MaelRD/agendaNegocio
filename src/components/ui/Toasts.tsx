@@ -34,7 +34,7 @@ export function Toasts() {
               </span>
               <span className="min-w-0 pt-0.5">
                 <span className="block text-sm font-medium text-ink">{t.title}</span>
-                {t.body && <span className="mt-0.5 block truncate text-[13px] text-ink-3">{t.body}</span>}
+                {t.body && <span className="mt-0.5 block truncate text-ui text-ink-3">{t.body}</span>}
               </span>
             </motion.button>
           )

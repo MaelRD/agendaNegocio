@@ -11,8 +11,8 @@ export default function BookIndex() {
         <LogoMark size={36} />
         <span className="text-sm font-medium text-ink-2">Agenda · demo</span>
       </Link>
-      <h1 className="mt-10 text-[34px] font-semibold leading-tight tracking-tight md:text-5xl">
-        Reserva en <span className="font-serif font-normal italic text-accent-ink">segundos</span>
+      <h1 className="mt-10 text-4xl font-semibold md:text-5xl">
+        Reserva en <span className="serif-accent text-accent-ink">segundos</span>
       </h1>
       <p className="mt-3 max-w-xl text-ink-2">
         Así ven tus clientes tu página de reservas. Elige un negocio de ejemplo: cada uno tiene sus propios servicios, equipo y horarios.

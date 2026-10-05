@@ -58,8 +58,8 @@ export default function Appointments() {
     <div className="mx-auto flex max-w-5xl flex-col gap-6">
       <div className="flex flex-col gap-4 pt-2 md:flex-row md:items-end md:justify-between">
         <div>
-          <h1 className="text-[28px] font-semibold tracking-tight">{cap(t.appointments)}</h1>
-          <p className="text-[15px] text-ink-3">Todo lo agendado, sin importar si llegó por el link, WhatsApp o el panel.</p>
+          <h1 className="text-3xl font-semibold">{cap(t.appointments)}</h1>
+          <p className="text-md text-ink-3">Todo lo agendado, sin importar si llegó por el link, WhatsApp o el panel.</p>
         </div>
         <Segmented id="appt-range" value={range} onChange={(r) => { setRange(r); setStatus('all') }} options={[
           { value: 'today', label: 'Hoy' },
@@ -78,7 +78,7 @@ export default function Appointments() {
             <button
               key={s.value}
               onClick={() => setStatus(s.value)}
-              className={cx('h-9 shrink-0 rounded-full px-3.5 text-[13px] font-medium transition', status === s.value ? 'bg-ink text-bg' : 'bg-surface text-ink-2 shadow-soft hover:text-ink')}
+              className={cx('h-9 shrink-0 rounded-full px-3.5 text-ui font-medium transition', status === s.value ? 'bg-ink text-bg' : 'bg-surface text-ink-2 shadow-soft hover:text-ink')}
             >
               {s.label}
             </button>
@@ -106,20 +106,20 @@ export default function Appointments() {
                 return (
                   <button key={a.id} onClick={() => openAppointment(a.id)} className="flex w-full items-center gap-3 rounded-[20px] px-3 py-3 text-left transition hover:bg-surface-2 md:gap-4 md:px-4">
                     <div className="w-12 shrink-0">
-                      <p className="text-[15px] font-semibold tabular-nums">{fmtTime(a.start)}</p>
-                      <p className="text-[11px] text-ink-3">{duration(a.duration)}</p>
+                      <p className="text-md font-semibold tabular-nums">{fmtTime(a.start)}</p>
+                      <p className="text-2xs text-ink-3">{duration(a.duration)}</p>
                     </div>
                     <Avatar name={c?.name ?? '?'} size={38} className="hidden sm:inline-grid" />
                     <div className="min-w-0 flex-1">
                       <p className={cx('truncate text-sm font-medium', a.status === 'cancelled' && 'text-ink-3 line-through')}>{c?.name}</p>
-                      <p className="truncate text-[13px] text-ink-3">
+                      <p className="truncate text-ui text-ink-3">
                         {sv?.name}
                         <span className="md:hidden"> · {p && firstName(p.name)}</span>
                       </p>
                     </div>
                     <div className={`tone-${p?.tone} hidden w-36 items-center gap-2 md:flex`}>
                       <span className="size-2 rounded-full" style={{ background: 'var(--tone-bar)' }} />
-                      <span className="truncate text-[13px] text-ink-2">{p?.name}</span>
+                      <span className="truncate text-ui text-ink-2">{p?.name}</span>
                     </div>
                     <span className="hidden w-6 text-ink-3 lg:block" title={a.source}>
                       <Src size={15} />

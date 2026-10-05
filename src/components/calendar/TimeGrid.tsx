@@ -111,7 +111,7 @@ export function TimeGrid({
           <div className="sticky left-0 z-10 w-14 shrink-0 bg-surface">
             {hours.map((h) => (
               <div key={h} className="relative" style={{ height: HOUR }}>
-                <span className="absolute -top-2 right-3 text-[11px] font-medium tabular-nums text-ink-3">{pad(h)}:00</span>
+                <span className="absolute -top-2 right-3 text-2xs font-medium tabular-nums text-ink-3">{pad(h)}:00</span>
               </div>
             ))}
           </div>
@@ -143,7 +143,7 @@ export function TimeGrid({
 
                 {hover?.col === col.id && (
                   <div
-                    className="pointer-events-none absolute inset-x-1 flex items-center gap-1 rounded-xl bg-accent-soft/80 px-2 text-[11px] font-medium text-accent-ink"
+                    className="pointer-events-none absolute inset-x-1 flex items-center gap-1 rounded-xl bg-accent-soft/80 px-2 text-2xs font-medium text-accent-ink"
                     style={{ top: ((hover.min - open * 60) / 60) * HOUR + 2, height: HOUR / 2 - 4 }}
                   >
                     <Plus size={12} /> {fmtTime(hover.min)}
@@ -188,12 +188,12 @@ export function TimeGrid({
                       <span className="absolute inset-y-1.5 left-1.5 w-[3px] rounded-full" style={{ background: 'var(--tone-bar)' }} />
                       {a.status === 'pending' && <span title="Pendiente" className="absolute right-1.5 top-1.5 size-1.5 rounded-full bg-warn ring-2 ring-[var(--tone-bg)]" />}
                       <span className={cx('flex h-full flex-col pl-3.5 pr-2', short ? 'justify-center' : 'pt-1.5')}>
-                        <span className={cx('truncate text-[12px] font-semibold leading-tight', cancelled && 'line-through')}>
+                        <span className={cx('truncate text-xs font-semibold', cancelled && 'line-through')}>
                           {c ? (narrow ? firstName(c.name) : c.name) : '—'}
                         </span>
-                        {!short && <span className="truncate text-[11px] leading-snug opacity-80">{sv?.name}</span>}
+                        {!short && <span className="truncate text-2xs leading-snug opacity-80">{sv?.name}</span>}
                         {height >= 70 && (
-                          <span className="mt-auto truncate pb-1.5 text-[10.5px] font-medium tabular-nums opacity-70">
+                          <span className="mt-auto truncate pb-1.5 text-2xs font-medium tabular-nums opacity-70">
                             {fmtTime(a.start)} – {fmtTime(a.start + a.duration)}
                           </span>
                         )}

@@ -111,7 +111,7 @@ export function AppointmentForm({
       footer={
         !done && (
           <div className="flex items-center justify-between gap-3">
-            <p className="hidden truncate text-[13px] text-ink-3 sm:block">
+            <p className="hidden truncate text-ui text-ink-3 sm:block">
               {service && start !== null ? `${fmtLong(date)} · ${fmtTime(start)} · ${duration(service.duration)}` : 'Elige un horario disponible'}
             </p>
             <div className="flex flex-1 justify-end gap-2 sm:flex-none">
@@ -154,7 +154,7 @@ export function AppointmentForm({
             {!editing && (
               <div className="flex flex-col gap-2.5">
                 <div className="flex items-center justify-between">
-                  <span className="text-[13px] font-medium text-ink-2">{cap(t.client)}</span>
+                  <span className="text-ui font-medium text-ink-2">{cap(t.client)}</span>
                   <Segmented
                     id="cust-mode"
                     value={mode}
@@ -194,7 +194,7 @@ export function AppointmentForm({
             </Field>
 
             <div className="flex flex-col gap-2">
-              <span className="text-[13px] font-medium text-ink-2">{cap(t.staff)}</span>
+              <span className="text-ui font-medium text-ink-2">{cap(t.staff)}</span>
               <div className="scrollbar-none -mx-1 flex gap-2 overflow-x-auto px-1">
                 {data.staff.map((p) => (
                   <button
@@ -217,7 +217,7 @@ export function AppointmentForm({
             </Field>
 
             <div className="flex flex-col gap-2">
-              <span className="text-[13px] font-medium text-ink-2">Hora</span>
+              <span className="text-ui font-medium text-ink-2">Hora</span>
               {slots.length === 0 ? (
                 <p className="rounded-2xl bg-surface-2 px-4 py-3 text-sm text-ink-3">Sin horarios ese día.</p>
               ) : (
@@ -228,7 +228,7 @@ export function AppointmentForm({
                       disabled={!s.free}
                       onClick={() => setStart(s.start)}
                       className={cx(
-                        'h-10 rounded-xl text-[13px] font-medium tabular-nums transition',
+                        'h-10 rounded-xl text-ui font-medium tabular-nums transition',
                         start === s.start
                           ? 'bg-accent text-accent-fg shadow-[0_6px_14px_-6px_var(--accent)]'
                           : s.free

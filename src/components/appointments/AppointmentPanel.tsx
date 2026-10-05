@@ -119,7 +119,7 @@ export function AppointmentPanel({ id, onClose }: { id: string | null; onClose: 
             <Avatar name={customer.name} size={44} />
             <div className="min-w-0 flex-1">
               <p className="truncate font-medium">{customer.name}</p>
-              <p className="flex items-center gap-1.5 text-[13px] text-ink-3">
+              <p className="flex items-center gap-1.5 text-ui text-ink-3">
                 <Phone size={12} /> {customer.phone}
               </p>
             </div>
@@ -151,7 +151,7 @@ export function AppointmentPanel({ id, onClose }: { id: string | null; onClose: 
           </div>
 
           <div>
-            <p className="mb-3 flex items-center gap-2 text-[13px] font-semibold text-ink">
+            <p className="mb-3 flex items-center gap-2 text-ui font-semibold text-ink">
               <MessageCircle size={15} className="text-[#2b8a57]" /> WhatsApp
               <span className="font-normal text-ink-3">· {appt.messages.length} mensajes</span>
             </p>

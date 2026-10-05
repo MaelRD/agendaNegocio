@@ -72,7 +72,22 @@
 }
 
 @theme inline {
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Type scale: size / line-height / tracking tuned per step (Inter, optical sizing on). */
+  --text-2xs: 11px;   --text-2xs--line-height: 14px;  --text-2xs--letter-spacing: 0.01em;
+  --text-xs: 12px;    --text-xs--line-height: 16px;   --text-xs--letter-spacing: 0.005em;
+  --text-ui: 13px;    --text-ui--line-height: 18px;   --text-ui--letter-spacing: -0.003em;
+  --text-sm: 14px;    --text-sm--line-height: 20px;   --text-sm--letter-spacing: -0.006em;
+  --text-md: 15px;    --text-md--line-height: 22px;   --text-md--letter-spacing: -0.009em;
+  --text-base: 16px;  --text-base--line-height: 24px; --text-base--letter-spacing: -0.011em;
+  --text-lg: 18px;    --text-lg--line-height: 26px;   --text-lg--letter-spacing: -0.014em;
+  --text-xl: 20px;    --text-xl--line-height: 28px;   --text-xl--letter-spacing: -0.017em;
+  --text-2xl: 24px;   --text-2xl--line-height: 30px;  --text-2xl--letter-spacing: -0.019em;
+  --text-3xl: 28px;   --text-3xl--line-height: 34px;  --text-3xl--letter-spacing: -0.021em;
+  --text-4xl: 36px;   --text-4xl--line-height: 42px;  --text-4xl--letter-spacing: -0.024em;
+  --text-5xl: 46px;   --text-5xl--line-height: 50px;  --text-5xl--letter-spacing: -0.028em;
+  --text-6xl: 62px;   --text-6xl--line-height: 64px;  --text-6xl--letter-spacing: -0.034em;
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
 
   --color-bg: var(--bg);
@@ -105,7 +120,15 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: -0.009em;
+  font-optical-sizing: auto;
+  /* single-storey a, open digits, contextual alternates */
+  font-feature-settings: "cv11", "ss01", "calt";
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -182,4 +205,28 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
   outline: none;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Editorial accent inside headings: Instrument Serif needs neutral tracking and a touch more size. */
+.serif-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.1em;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.tabular-nums {
+  font-feature-settings: "cv11", "ss01", "tnum";
 }

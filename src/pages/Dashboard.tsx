@@ -53,10 +53,10 @@ export default function Dashboard() {
         <motion.section {...fade(0)} className="flex flex-col gap-5 pt-2 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-sm text-ink-3">{fmtLong(today)}</p>
-            <h1 className="mt-1 text-[32px] font-semibold leading-tight tracking-tight md:text-[40px]">
-              {greeting()}, <span className="font-serif text-[1.12em] font-normal italic text-accent-ink">{firstName(template.staff[0].name)}</span> 👋
+            <h1 className="mt-1 text-4xl font-semibold md:text-5xl">
+              {greeting()}, <span className="serif-accent text-accent-ink">{firstName(template.staff[0].name)}</span> 👋
             </h1>
-            <p className="mt-1.5 text-[15px] text-ink-2">
+            <p className="mt-1.5 text-md text-ink-2">
               Tienes <b className="font-semibold text-ink">{s.total} {t.appointments}</b> hoy
               {upcoming.length > 0 && upcomingLabel === 'Hoy' && (
                 <>
@@ -73,8 +73,8 @@ export default function Dashboard() {
 
         <motion.div {...fade(1)} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Card className="p-5 sm:col-span-2 lg:col-span-1 lg:row-span-1">
-            <p className="text-[13px] text-ink-3">{cap(t.appointments)} hoy</p>
-            <p className="mt-1 text-4xl font-semibold tabular-nums tracking-tight">{s.total}</p>
+            <p className="text-ui text-ink-3">{cap(t.appointments)} hoy</p>
+            <p className="mt-1 text-4xl font-semibold tabular-nums">{s.total}</p>
             <div className="mt-4 flex h-2 overflow-hidden rounded-full bg-surface-2">
               {[
                 [s.confirmed, 'bg-ok'],
@@ -90,7 +90,7 @@ export default function Dashboard() {
                 />
               ))}
             </div>
-            <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[13px] text-ink-2">
+            <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-ui text-ink-2">
               <span className="flex items-center gap-1.5"><i className="size-2 rounded-full bg-ok" />{s.confirmed} confirmadas</span>
               <span className="flex items-center gap-1.5"><i className="size-2 rounded-full bg-warn" />{s.pending} pendientes</span>
               <span className="flex items-center gap-1.5"><i className="size-2 rounded-full bg-bad" />{s.cancelled} {s.cancelled === 1 ? 'cancelada' : 'canceladas'}</span>
@@ -102,8 +102,8 @@ export default function Dashboard() {
           <Card className="flex items-center gap-4 p-5">
             <Ring value={s.occupancy} />
             <div>
-              <p className="text-[13px] text-ink-3">Ocupación</p>
-              <p className="text-2xl font-semibold tabular-nums tracking-tight">{s.occupancy}%</p>
+              <p className="text-ui text-ink-3">Ocupación</p>
+              <p className="text-2xl font-semibold tabular-nums">{s.occupancy}%</p>
               <p className="text-xs text-ink-3">{data.staff.length} {data.staff.length === 1 ? t.staff : t.staffPlural}</p>
             </div>
           </Card>
@@ -115,7 +115,7 @@ export default function Dashboard() {
             <Card className="h-full p-6">
               <SectionTitle
                 title="Reservas de la semana"
-                action={<span className="text-[13px] text-ink-3">{week.reduce((a, d) => a + d.count, 0)} en total</span>}
+                action={<span className="text-ui text-ink-3">{week.reduce((a, d) => a + d.count, 0)} en total</span>}
               />
               <div className="mt-6 flex h-44 items-end gap-2 sm:gap-4">
                 {week.map((d, i) => {
@@ -143,7 +143,7 @@ export default function Dashboard() {
 
           <motion.div {...fade(3)} className="lg:col-span-2">
             <Card className="h-full p-6">
-              <SectionTitle title="Servicios más solicitados" action={<span className="text-[13px] text-ink-3">30 días</span>} />
+              <SectionTitle title="Servicios más solicitados" action={<span className="text-ui text-ink-3">30 días</span>} />
               <div className="mt-5 flex flex-col gap-4">
                 {top.map(({ service: sv, count }, i) => (
                   <div key={sv.id} className={`tone-${sv.tone}`}>
@@ -176,7 +176,7 @@ export default function Dashboard() {
               </span>
               <div className="min-w-0 flex-1">
                 <p className="font-semibold text-accent-ink">{enabled} automatizaciones activas</p>
-                <p className="text-[13px] text-accent-ink/75">{sentWeek} WhatsApps enviados esta semana, sin escribir uno solo.</p>
+                <p className="text-ui text-accent-ink/75">{sentWeek} WhatsApps enviados esta semana, sin escribir uno solo.</p>
               </div>
               <ArrowUpRight size={18} className="text-accent-ink transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Card>
@@ -187,7 +187,7 @@ export default function Dashboard() {
             </span>
             <div className="min-w-0 flex-1">
               <p className="font-semibold">Tu link de reservas</p>
-              <p className="truncate text-[13px] text-ink-3">{bookUrl.replace(/^https?:\/\//, '')}</p>
+              <p className="truncate text-ui text-ink-3">{bookUrl.replace(/^https?:\/\//, '')}</p>
             </div>
             <Button
               size="icon"
@@ -208,7 +208,7 @@ export default function Dashboard() {
       <motion.aside {...fade(2)} className="flex flex-col gap-4">
         <Card className="p-2">
           <div className="flex items-center justify-between px-4 pb-2 pt-4">
-            <h2 className="text-[15px] font-semibold">Próximas {t.appointments}</h2>
+            <h2 className="text-md font-semibold">Próximas {t.appointments}</h2>
             <span className="rounded-full bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink-2">{upcomingLabel}</span>
           </div>
           {upcoming.length === 0 && <p className="px-4 py-8 text-center text-sm text-ink-3">No hay {t.appointments} próximas.</p>}
@@ -227,12 +227,12 @@ export default function Dashboard() {
                   className="flex items-center gap-3 rounded-[20px] px-3 py-3 text-left transition hover:bg-surface-2"
                 >
                   <div className="w-12 shrink-0 text-center">
-                    <p className="text-[15px] font-semibold tabular-nums">{fmtTime(a.start)}</p>
+                    <p className="text-md font-semibold tabular-nums">{fmtTime(a.start)}</p>
                   </div>
                   <span className={`tone-${p?.tone} h-10 w-1 shrink-0 rounded-full`} style={{ background: 'var(--tone-bar)' }} />
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium">{c?.name}</p>
-                    <p className="truncate text-[13px] text-ink-3">
+                    <p className="truncate text-ui text-ink-3">
                       {sv?.name} · {p && firstName(p.name)}
                     </p>
                   </div>
@@ -242,13 +242,13 @@ export default function Dashboard() {
               )
             })}
           </div>
-          <Link to="/demo/calendar" className="mx-2 mb-2 mt-1 flex items-center justify-center rounded-2xl py-3 text-[13px] font-medium text-ink-2 transition hover:bg-surface-2 hover:text-ink">
+          <Link to="/demo/calendar" className="mx-2 mb-2 mt-1 flex items-center justify-center rounded-2xl py-3 text-ui font-medium text-ink-2 transition hover:bg-surface-2 hover:text-ink">
             Ver calendario completo
           </Link>
         </Card>
 
         <Card className="p-5">
-          <h2 className="text-[15px] font-semibold">Equipo hoy</h2>
+          <h2 className="text-md font-semibold">Equipo hoy</h2>
           <div className="mt-4 flex flex-col gap-3.5">
             {data.staff.map((p) => {
               const mine = data.appointments.filter((a) => a.date === today && a.staffId === p.id && isActive(a))
@@ -280,12 +280,12 @@ function Stat({ icon: Icon, label, value, note, up }: { icon: typeof Wallet; lab
   return (
     <Card className="p-5">
       <div className="flex items-center justify-between">
-        <p className="text-[13px] text-ink-3">{label}</p>
+        <p className="text-ui text-ink-3">{label}</p>
         <span className="grid size-8 place-items-center rounded-xl bg-surface-2 text-ink-2">
           <Icon size={15} />
         </span>
       </div>
-      <p className="mt-1 text-2xl font-semibold tabular-nums tracking-tight">{value}</p>
+      <p className="mt-1 text-2xl font-semibold tabular-nums">{value}</p>
       <p className={cx('mt-1 flex items-center gap-1 text-xs', up ? 'text-ok' : 'text-bad')}>
         <TrendingUp size={12} className={up ? '' : 'rotate-180'} /> <span className="text-ink-3">{note}</span>
       </p>

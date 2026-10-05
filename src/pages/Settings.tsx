@@ -12,12 +12,12 @@ export default function Settings() {
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-6">
       <div className="pt-2">
-        <h1 className="text-[28px] font-semibold tracking-tight">Ajustes</h1>
-        <p className="text-[15px] text-ink-3">Horario, contacto y datos de la demo.</p>
+        <h1 className="text-3xl font-semibold">Ajustes</h1>
+        <p className="text-md text-ink-3">Horario, contacto y datos de la demo.</p>
       </div>
 
       <Card className="flex flex-col gap-5 p-6">
-        <h2 className="text-[15px] font-semibold">Horario de atención</h2>
+        <h2 className="text-md font-semibold">Horario de atención</h2>
         <div className="grid grid-cols-2 gap-3">
           <Field label="Abre">
             <Select value={data.settings.openHour} onChange={(e) => updateSettings({ openHour: Math.min(Number(e.target.value), data.settings.closeHour - 1) })}>
@@ -44,7 +44,7 @@ export default function Settings() {
       </Card>
 
       <Card className="flex flex-col gap-4 p-6">
-        <h2 className="text-[15px] font-semibold">Sobre esta demo</h2>
+        <h2 className="text-md font-semibold">Sobre esta demo</h2>
         {[
           [Database, 'Datos simulados', 'Todo se guarda en tu navegador (localStorage). Nada sale de tu equipo.'],
           [Smartphone, 'WhatsApp simulado', 'En un proyecto real se conecta a la API oficial de WhatsApp Business.'],
@@ -58,7 +58,7 @@ export default function Settings() {
               </span>
               <div>
                 <p className="text-sm font-medium">{title as string}</p>
-                <p className="text-[13px] text-ink-3">{body as string}</p>
+                <p className="text-ui text-ink-3">{body as string}</p>
               </div>
             </div>
           )

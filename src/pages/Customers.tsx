@@ -44,8 +44,8 @@ export default function Customers() {
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-6">
       <div className="flex flex-col gap-1 pt-2">
-        <h1 className="text-[28px] font-semibold tracking-tight">{cap(t.clients)}</h1>
-        <p className="text-[15px] text-ink-3">Un mini CRM que se llena solo con cada reserva.</p>
+        <h1 className="text-3xl font-semibold">{cap(t.clients)}</h1>
+        <p className="text-md text-ink-3">Un mini CRM que se llena solo con cada reserva.</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -56,7 +56,7 @@ export default function Customers() {
           ['Gasto promedio', moneyPlain(totals.ltv)],
         ].map(([l, v]) => (
           <div key={l} className="rounded-[22px] bg-surface-2 px-5 py-4">
-            <p className="text-[13px] text-ink-3">{l}</p>
+            <p className="text-ui text-ink-3">{l}</p>
             <p className="mt-0.5 text-xl font-semibold tabular-nums">{v}</p>
           </div>
         ))}
@@ -102,18 +102,18 @@ export default function Customers() {
                 <Avatar name={x.customer.name} size={44} />
                 <div className="min-w-0 flex-1">
                   <p className="truncate font-semibold">{x.customer.name}</p>
-                  <p className="text-[13px] text-ink-3">
+                  <p className="text-ui text-ink-3">
                     {x.visits} {x.visits === 1 ? t.appointment : t.appointments} · {moneyPlain(x.spent)} gastados
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-2 text-[13px]">
+              <div className="grid grid-cols-2 gap-2 text-ui">
                 <div className="rounded-2xl bg-surface-2 px-3 py-2">
-                  <p className="text-[11px] text-ink-3">Última visita</p>
+                  <p className="text-2xs text-ink-3">Última visita</p>
                   <p className="font-medium">{x.last ? fmtShort(x.last.date) : '—'}</p>
                 </div>
                 <div className="rounded-2xl bg-surface-2 px-3 py-2">
-                  <p className="text-[11px] text-ink-3">Próxima {t.appointment}</p>
+                  <p className="text-2xs text-ink-3">Próxima {t.appointment}</p>
                   <p className={cx('font-medium', x.next && 'text-accent-ink')}>{x.next ? fmtShort(x.next.date) : '—'}</p>
                 </div>
               </div>
@@ -160,8 +160,8 @@ function CustomerSheet({ summary, onClose }: { summary?: CustomerSummary; onClos
                 [summary.last ? fmtShort(summary.last.date) : '—', 'Última'],
               ].map(([v, l]) => (
                 <div key={l} className="rounded-2xl bg-surface-2 px-2 py-2.5">
-                  <p className="truncate text-[15px] font-semibold tabular-nums">{v}</p>
-                  <p className="text-[11px] text-ink-3">{l}</p>
+                  <p className="truncate text-md font-semibold tabular-nums">{v}</p>
+                  <p className="text-2xs text-ink-3">{l}</p>
                 </div>
               ))}
             </div>
@@ -208,12 +208,12 @@ function CustomerSheet({ summary, onClose }: { summary?: CustomerSummary; onClos
             <div className="flex flex-col gap-1">
               {summary.history.slice(0, 20).map((a) => (
                 <button key={a.id} onClick={() => openAppointment(a.id)} className="flex items-center gap-3 rounded-2xl px-3 py-2.5 text-left hover:bg-surface-2">
-                  <div className="w-14 shrink-0 text-[13px] font-medium tabular-nums">{fmtShort(a.date)}</div>
+                  <div className="w-14 shrink-0 text-ui font-medium tabular-nums">{fmtShort(a.date)}</div>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium">{service(a.serviceId)?.name}</p>
                     <p className="truncate text-xs text-ink-3">con {staff(a.staffId)?.name}</p>
                   </div>
-                  <span className="text-[13px] tabular-nums text-ink-2">{money(a.price)}</span>
+                  <span className="text-ui tabular-nums text-ink-2">{money(a.price)}</span>
                   <StatusBadge status={a.status} className="hidden sm:inline-flex" />
                 </button>
               ))}

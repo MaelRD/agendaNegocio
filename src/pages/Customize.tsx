@@ -12,17 +12,17 @@ export default function Customize() {
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-8">
       <div className="max-w-2xl pt-2">
-        <h1 className="text-[34px] font-semibold leading-[1.1] tracking-tight md:text-[44px]">
-          Un sistema, <span className="font-serif font-normal italic text-accent-ink">tu forma de trabajar</span>
+        <h1 className="text-4xl font-semibold md:text-5xl">
+          Un sistema, <span className="serif-accent text-accent-ink">tu forma de trabajar</span>
         </h1>
-        <p className="mt-3 text-[15px] leading-relaxed text-ink-2 md:text-base">
+        <p className="mt-3 text-md leading-relaxed text-ink-2 md:text-base">
           Elige un tipo de negocio y mira cómo se adaptan el vocabulario, los servicios, el equipo, los mensajes de WhatsApp y los colores. Así arranca
           cada proyecto a medida: con tu operación real, no con una plantilla.
         </p>
       </div>
 
       <section>
-        <h2 className="mb-3 px-1 text-[13px] font-semibold uppercase tracking-wider text-ink-3">Tipo de negocio</h2>
+        <h2 className="mb-3 px-1 text-ui font-semibold uppercase tracking-wider text-ink-3">Tipo de negocio</h2>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
           {BUSINESS_LIST.map((b) => {
             const active = b.id === data.businessId
@@ -65,12 +65,12 @@ export default function Customize() {
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
         <Card className="flex flex-col gap-6 p-6">
-          <h2 className="text-[15px] font-semibold">Identidad</h2>
+          <h2 className="text-md font-semibold">Identidad</h2>
           <Field label="Nombre del negocio">
             <Input value={data.settings.name} onChange={(e) => updateSettings({ name: e.target.value })} />
           </Field>
           <div className="flex flex-col gap-2">
-            <span className="text-[13px] font-medium text-ink-2">Color de acento</span>
+            <span className="text-ui font-medium text-ink-2">Color de acento</span>
             <div className="flex flex-wrap gap-3">
               {HUES.map((h) => (
                 <button
@@ -85,7 +85,7 @@ export default function Customize() {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <span className="text-[13px] font-medium text-ink-2">Apariencia</span>
+            <span className="text-ui font-medium text-ink-2">Apariencia</span>
             <div className="grid grid-cols-2 gap-3">
               {(['light', 'dark'] as const).map((m) => (
                 <button
@@ -103,7 +103,7 @@ export default function Customize() {
 
         <Card className="flex flex-col gap-5 p-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-[15px] font-semibold">Lo que cambió</h2>
+            <h2 className="text-md font-semibold">Lo que cambió</h2>
             <span className="rounded-full bg-surface-2 px-2.5 py-1 text-xs text-ink-2">{template.kind}</span>
           </div>
           <AnimatePresence mode="wait">
@@ -115,7 +115,7 @@ export default function Customize() {
                   ['Equipo', cap(t.staffPlural)],
                 ].map(([k, v]) => (
                   <div key={k} className="rounded-2xl bg-surface-2 px-2 py-3">
-                    <p className="text-[11px] text-ink-3">{k}</p>
+                    <p className="text-2xs text-ink-3">{k}</p>
                     <p className="truncate text-sm font-semibold text-accent-ink">{v}</p>
                   </div>
                 ))}
@@ -124,7 +124,7 @@ export default function Customize() {
                 <p className="mb-2 text-xs font-medium text-ink-3">Equipo</p>
                 <div className="flex flex-wrap gap-2">
                   {data.staff.map((p) => (
-                    <span key={p.id} className="flex items-center gap-2 rounded-full bg-surface-2 py-1 pl-1 pr-3 text-[13px]">
+                    <span key={p.id} className="flex items-center gap-2 rounded-full bg-surface-2 py-1 pl-1 pr-3 text-ui">
                       <Avatar name={p.name} tone={p.tone} size={24} />
                       {p.name}
                     </span>
@@ -147,7 +147,7 @@ export default function Customize() {
                   ))}
                 </div>
               </div>
-              <p className="rounded-2xl bg-accent-soft px-4 py-3 text-[13px] text-accent-ink">
+              <p className="rounded-2xl bg-accent-soft px-4 py-3 text-ui text-accent-ink">
                 <b className="font-semibold">Recordatorio:</b> “{template.reminderTip}”
               </p>
             </motion.div>

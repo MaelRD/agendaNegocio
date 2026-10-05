@@ -57,10 +57,10 @@ export default function CalendarPage() {
             events: visible.filter((a) => a.date === key),
             header: (
               <button onClick={() => { go(key); setView('day') }} className="group flex w-full flex-col items-center gap-1">
-                <span className={cx('text-[11px] font-medium uppercase tracking-wider', isToday ? 'text-accent-ink' : 'text-ink-3')}>{dayShort(d)}</span>
+                <span className={cx('text-2xs font-medium uppercase tracking-wider', isToday ? 'text-accent-ink' : 'text-ink-3')}>{dayShort(d)}</span>
                 <span
                   className={cx(
-                    'grid size-9 place-items-center rounded-full text-[17px] font-semibold tabular-nums transition',
+                    'grid size-9 place-items-center rounded-full text-lg font-semibold tabular-nums transition',
                     isToday ? 'bg-accent text-accent-fg shadow-[0_6px_14px_-6px_var(--accent)]' : key === date ? 'bg-surface-3' : 'group-hover:bg-surface-2',
                   )}
                 >
@@ -80,7 +80,7 @@ export default function CalendarPage() {
             header: (
               <div className="flex items-center justify-center gap-2">
                 <Avatar name={p.name} tone={p.tone} size={28} />
-                <span className="truncate text-[13px] font-semibold">{mobile ? firstName(p.name) : p.name}</span>
+                <span className="truncate text-ui font-semibold">{mobile ? firstName(p.name) : p.name}</span>
               </div>
             ),
           }))
@@ -109,7 +109,7 @@ export default function CalendarPage() {
           <MiniCalendar selected={date} onSelect={go} busy={busy} highlightWeek={effectiveView === 'week'} />
         </Card>
         <Card className="p-5">
-          <p className="mb-3 text-[13px] font-semibold text-ink">{cap(t.staffPlural)}</p>
+          <p className="mb-3 text-ui font-semibold text-ink">{cap(t.staffPlural)}</p>
           <div className="flex flex-col gap-1">
             {data.staff.map((p) => {
               const on = !hidden.has(p.id)
@@ -133,7 +133,7 @@ export default function CalendarPage() {
           </div>
         </Card>
         <Card className="bg-surface-2 p-5 shadow-none">
-          <p className="text-[13px] text-ink-3">{fmtLong(date)}</p>
+          <p className="text-ui text-ink-3">{fmtLong(date)}</p>
           <div className="mt-3 grid grid-cols-2 gap-3">
             <div>
               <p className="text-xl font-semibold tabular-nums">{s.total}</p>
@@ -144,7 +144,7 @@ export default function CalendarPage() {
               <p className="text-xs text-ink-3">ocupación</p>
             </div>
           </div>
-          <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1.5 text-[11.5px] text-ink-3">
+          <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1.5 text-2xs text-ink-3">
             <span className="flex items-center gap-1.5"><i className="h-3 w-4 rounded bg-surface" />Confirmada</span>
             <span className="flex items-center gap-1.5"><i className="size-2 rounded-full bg-warn" />Pendiente</span>
             <span className="flex items-center gap-1.5"><i className="h-3 w-4 rounded opacity-60" style={{ background: 'repeating-linear-gradient(135deg, var(--ink-3) 0 2px, transparent 2px 5px)' }} />Cancelada</span>
@@ -170,7 +170,7 @@ export default function CalendarPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.15 }}
-              className="min-w-0 flex-1 truncate text-lg font-semibold tracking-tight md:flex-none md:text-xl"
+              className="min-w-0 flex-1 truncate text-lg font-semibold md:flex-none md:text-xl"
             >
               {title}
             </motion.h1>
@@ -197,8 +197,8 @@ export default function CalendarPage() {
               const n = busy.get(key) ?? 0
               return (
                 <button key={key} onClick={() => go(key)} className={cx('flex flex-col items-center gap-1 rounded-2xl py-2 transition', sel ? 'bg-accent text-accent-fg' : 'text-ink')}>
-                  <span className={cx('text-[10.5px] font-medium uppercase', sel ? 'opacity-80' : 'text-ink-3')}>{dayShort(d).slice(0, 2)}</span>
-                  <span className={cx('text-[15px] font-semibold tabular-nums', key === today && !sel && 'text-accent-ink')}>{d.getDate()}</span>
+                  <span className={cx('text-2xs font-medium uppercase', sel ? 'opacity-80' : 'text-ink-3')}>{dayShort(d).slice(0, 2)}</span>
+                  <span className={cx('text-md font-semibold tabular-nums', key === today && !sel && 'text-accent-ink')}>{d.getDate()}</span>
                   <span className={cx('size-1 rounded-full', n ? (sel ? 'bg-accent-fg' : 'bg-ink-3/60') : 'bg-transparent')} />
                 </button>
               )
@@ -214,7 +214,7 @@ export default function CalendarPage() {
               <button
                 key={p.id}
                 onClick={() => toggle(p.id)}
-                className={cx(`tone-${p.tone} flex shrink-0 items-center gap-2 rounded-full py-1 pl-1 pr-3 text-[13px] font-medium transition`, !on && 'opacity-45')}
+                className={cx(`tone-${p.tone} flex shrink-0 items-center gap-2 rounded-full py-1 pl-1 pr-3 text-ui font-medium transition`, !on && 'opacity-45')}
                 style={{ background: 'var(--tone-bg)', color: 'var(--tone-ink)' }}
               >
                 <Avatar name={p.name} tone={p.tone} size={24} className="ring-2 ring-surface" />

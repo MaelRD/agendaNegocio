@@ -116,7 +116,7 @@ export function Sheet({
               {(title || subtitle) && (
                 <div onPointerDown={startDrag} className="flex shrink-0 touch-none items-start justify-between gap-4 px-6 pb-2 pt-3 md:touch-auto md:pt-6">
                   <div className="min-w-0">
-                    {title && <h3 className="text-lg font-semibold tracking-tight text-ink">{title}</h3>}
+                    {title && <h3 className="text-lg font-semibold text-ink">{title}</h3>}
                     {subtitle && <div className="mt-0.5 text-sm text-ink-3">{subtitle}</div>}
                   </div>
                   <button

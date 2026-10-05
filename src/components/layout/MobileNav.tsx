@@ -26,7 +26,7 @@ export function MobileNav() {
           <motion.span layoutId="mob-active" className="absolute top-0 h-[3px] w-6 rounded-full bg-accent" transition={{ type: 'spring', stiffness: 500, damping: 40 }} />
         )}
         <Icon size={21} strokeWidth={active ? 2.1 : 1.7} className={active ? 'text-ink' : 'text-ink-3'} />
-        <span className={cx('text-[10.5px] font-medium', active ? 'text-ink' : 'text-ink-3')}>{label}</span>
+        <span className={cx('text-2xs font-medium', active ? 'text-ink' : 'text-ink-3')}>{label}</span>
       </NavLink>
     )
   }
@@ -50,7 +50,7 @@ export function MobileNav() {
           <button onClick={() => setMore(true)} className="relative flex flex-1 flex-col items-center gap-1 pb-1 pt-2">
             {moreActive && <span className="absolute top-0 h-[3px] w-6 rounded-full bg-accent" />}
             <MoreHorizontal size={21} className={moreActive ? 'text-ink' : 'text-ink-3'} />
-            <span className={cx('text-[10.5px] font-medium', moreActive ? 'text-ink' : 'text-ink-3')}>Más</span>
+            <span className={cx('text-2xs font-medium', moreActive ? 'text-ink' : 'text-ink-3')}>Más</span>
           </button>
         </div>
       </nav>

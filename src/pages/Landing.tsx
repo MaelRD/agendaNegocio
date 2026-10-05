@@ -35,8 +35,8 @@ export default function Landing() {
       />
       <header className="relative mx-auto flex max-w-6xl items-center gap-3 px-4 py-5 md:px-8">
         <LogoMark size={36} />
-        <span className="font-semibold tracking-tight">Agenda</span>
-        <span className="rounded-full bg-surface px-2 py-0.5 text-[11px] font-medium text-ink-3 shadow-soft">demo</span>
+        <span className="font-semibold">Agenda</span>
+        <span className="rounded-full bg-surface px-2 py-0.5 text-2xs font-medium text-ink-3 shadow-soft">demo</span>
         <div className="ml-auto flex items-center gap-1">
           <ThemeButton />
           <Link to="/book" className="hidden rounded-full px-4 py-2 text-sm font-medium text-ink-2 hover:bg-surface-2 hover:text-ink sm:block">
@@ -54,11 +54,11 @@ export default function Landing() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 }}
-            className="mt-4 text-[40px] font-semibold leading-[1.04] tracking-tight md:text-[64px]"
+            className="mt-4 text-4xl font-semibold md:text-6xl"
           >
             Tu agenda, tus reglas,
             <br />
-            <span className="font-serif font-normal italic text-accent-ink">tu forma de trabajar.</span>
+            <span className="serif-accent text-accent-ink">tu forma de trabajar.</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mt-6 max-w-xl text-base leading-relaxed text-ink-2 md:text-lg">
             Esta demo muestra un sistema de agenda, reservas en línea y recordatorios por WhatsApp. El mismo núcleo se adapta a una clínica dental, un
@@ -67,13 +67,13 @@ export default function Landing() {
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/demo/dashboard"
-              className="inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 text-[15px] font-medium text-accent-fg shadow-[0_10px_24px_-10px_var(--accent)] transition hover:brightness-110 active:scale-[0.98]"
+              className="inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 text-md font-medium text-accent-fg shadow-[0_10px_24px_-10px_var(--accent)] transition hover:brightness-110 active:scale-[0.98]"
             >
               Abrir el panel <ArrowRight size={17} />
             </Link>
             <Link
               to={`/book/${data.businessId}`}
-              className="inline-flex h-12 items-center gap-2 rounded-full bg-surface px-6 text-[15px] font-medium text-ink shadow-soft transition hover:bg-surface-2 active:scale-[0.98]"
+              className="inline-flex h-12 items-center gap-2 rounded-full bg-surface px-6 text-md font-medium text-ink shadow-soft transition hover:bg-surface-2 active:scale-[0.98]"
             >
               Reservar como cliente
             </Link>

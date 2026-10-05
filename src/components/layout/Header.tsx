@@ -13,8 +13,8 @@ import { LogoMark } from './LogoMark'
 function Metric({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex items-baseline gap-1.5 whitespace-nowrap">
-      <span className="text-[15px] font-semibold tabular-nums tracking-tight text-ink">{value}</span>
-      <span className="text-[13px] text-ink-3">{label}</span>
+      <span className="text-md font-semibold tabular-nums text-ink">{value}</span>
+      <span className="text-ui text-ink-3">{label}</span>
     </div>
   )
 }
@@ -45,7 +45,7 @@ function Notifications() {
         >
           <Bell size={19} strokeWidth={1.8} />
           {unread > 0 && (
-            <span className="absolute right-2 top-2 grid size-4 place-items-center rounded-full bg-accent text-[10px] font-semibold text-accent-fg ring-2 ring-bg">
+            <span className="absolute right-2 top-2 grid size-4 place-items-center rounded-full bg-accent text-2xs font-semibold text-accent-fg ring-2 ring-bg">
               {unread}
             </span>
           )}
@@ -60,7 +60,7 @@ function Notifications() {
             transition={{ duration: 0.16 }}
             className="absolute right-0 top-12 z-50 w-[min(340px,calc(100vw-32px))] origin-top-right rounded-3xl bg-surface p-2 shadow-float"
           >
-            <p className="px-3 pb-1 pt-2 text-[13px] font-semibold text-ink">Actividad</p>
+            <p className="px-3 pb-1 pt-2 text-ui font-semibold text-ink">Actividad</p>
             {data.notifications.length === 0 && <p className="px-3 py-6 text-center text-sm text-ink-3">Sin novedades</p>}
             {data.notifications.slice(0, 6).map((n) => {
               const Icon = n.kind === 'booking' ? CalendarCheck : n.kind === 'cancel' ? XCircle : MessageCircle
@@ -74,7 +74,7 @@ function Notifications() {
                       {n.title}
                       {!n.read && <span className="size-1.5 rounded-full bg-accent" />}
                     </p>
-                    <p className="truncate text-[13px] text-ink-3">{n.body}</p>
+                    <p className="truncate text-ui text-ink-3">{n.body}</p>
                   </div>
                   <span className="shrink-0 pt-0.5 text-xs text-ink-3">{fmtAgo(n.at)}</span>
                 </div>
@@ -124,7 +124,7 @@ export function Header() {
       <div className="flex h-16 items-center gap-3 px-4 md:hidden">
         <LogoMark size={36} />
         <div className="min-w-0 flex-1">
-          <p className="truncate text-[15px] font-semibold leading-tight tracking-tight">{data.settings.name}</p>
+          <p className="truncate text-md font-semibold">{data.settings.name}</p>
           <p className="text-xs text-ink-3">Agenda inteligente</p>
         </div>
         <ThemeButton />
@@ -134,8 +134,8 @@ export function Header() {
       {/* Tablet / desktop */}
       <div className="hidden min-h-[84px] items-center gap-6 px-6 md:flex lg:px-8">
         <div className="min-w-0">
-          <p className="truncate text-xl font-semibold tracking-tight">{data.settings.name}</p>
-          <p className="text-[13px] text-ink-3">Agenda inteligente · {template.kind}</p>
+          <p className="truncate text-xl font-semibold">{data.settings.name}</p>
+          <p className="text-ui text-ink-3">Agenda inteligente · {template.kind}</p>
         </div>
 
         <div className="hidden items-center gap-5 rounded-full bg-surface px-5 py-2.5 shadow-soft xl:flex">
@@ -150,7 +150,7 @@ export function Header() {
           <Link
             to={`/book/${data.businessId}`}
             target="_blank"
-            className="mr-2 hidden items-center gap-1.5 rounded-full px-3 py-2 text-[13px] font-medium text-ink-2 transition hover:bg-surface-2 hover:text-ink lg:inline-flex"
+            className="mr-2 hidden items-center gap-1.5 rounded-full px-3 py-2 text-ui font-medium text-ink-2 transition hover:bg-surface-2 hover:text-ink lg:inline-flex"
           >
             Página de reservas <ExternalLink size={14} />
           </Link>

@@ -25,8 +25,8 @@ export default function Services() {
     <div className="mx-auto flex max-w-5xl flex-col gap-8">
       <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-[28px] font-semibold tracking-tight">Servicios</h1>
-          <p className="text-[15px] text-ink-3">Lo que tus clientes pueden reservar. Los inactivos no aparecen en tu página pública.</p>
+          <h1 className="text-3xl font-semibold">Servicios</h1>
+          <p className="text-md text-ink-3">Lo que tus clientes pueden reservar. Los inactivos no aparecen en tu página pública.</p>
         </div>
         <Button
           variant="primary"
@@ -39,7 +39,7 @@ export default function Services() {
 
       {categories.map((cat) => (
         <section key={cat}>
-          <h2 className="mb-3 px-1 text-[13px] font-semibold uppercase tracking-wider text-ink-3">{cat}</h2>
+          <h2 className="mb-3 px-1 text-ui font-semibold uppercase tracking-wider text-ink-3">{cat}</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {data.services
               .filter((s) => s.category === cat)
@@ -66,7 +66,7 @@ export default function Services() {
                     />
                   </div>
                   <p className="mt-4 font-semibold">{s.name}</p>
-                  <div className="mt-1 flex items-center gap-3 text-[13px] text-ink-3">
+                  <div className="mt-1 flex items-center gap-3 text-ui text-ink-3">
                     <span className="flex items-center gap-1">
                       <Clock size={13} /> {duration(s.duration)}
                     </span>
@@ -74,7 +74,7 @@ export default function Services() {
                     <span>{usage.get(s.id) ?? 0} reservas / mes</span>
                   </div>
                   <div className="mt-5 flex items-end justify-between">
-                    <p className="text-2xl font-semibold tabular-nums tracking-tight">{money(s.price)}</p>
+                    <p className="text-2xl font-semibold tabular-nums">{money(s.price)}</p>
                     <Button size="sm" variant="ghost" onClick={() => setEditing(s)} className="opacity-100 md:opacity-0 md:group-hover:opacity-100">
                       <Pencil size={14} /> Editar
                     </Button>
@@ -155,7 +155,7 @@ function ServiceEditor({
             </datalist>
           </Field>
           <div className="flex flex-col gap-2">
-            <span className="text-[13px] font-medium text-ink-2">Color en el calendario</span>
+            <span className="text-ui font-medium text-ink-2">Color en el calendario</span>
             <div className="flex gap-2">
               {([1, 2, 3, 4, 5] as Tone[]).map((tone) => (
                 <button

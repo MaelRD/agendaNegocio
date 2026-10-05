@@ -17,9 +17,9 @@ export function Button({
       {...rest}
       className={cx(
         'inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium transition-[background,color,transform,box-shadow] duration-150 active:scale-[0.97] disabled:opacity-50',
-        size === 'sm' && 'h-8 px-3 text-[13px]',
+        size === 'sm' && 'h-8 px-3 text-ui',
         size === 'md' && 'h-10 px-4 text-sm',
-        size === 'lg' && 'h-12 px-6 text-[15px]',
+        size === 'lg' && 'h-12 px-6 text-md',
         size === 'icon' && 'size-10',
         variant === 'primary' && 'bg-accent text-accent-fg shadow-[0_6px_16px_-6px_var(--accent)] hover:brightness-110',
         variant === 'soft' && 'bg-surface-2 text-ink hover:bg-surface-3',
@@ -93,7 +93,7 @@ export function Toggle({ on, onChange, label }: { on: boolean; onChange: () => v
 export function Field({ label, hint, children, className }: { label: string; hint?: string; children: ReactNode; className?: string }) {
   return (
     <label className={cx('flex flex-col gap-1.5', className)}>
-      <span className="text-[13px] font-medium text-ink-2">{label}</span>
+      <span className="text-ui font-medium text-ink-2">{label}</span>
       {children}
       {hint && <span className="text-xs text-ink-3">{hint}</span>}
     </label>
@@ -135,7 +135,7 @@ export function Segmented<T extends string>({
           key={o.value}
           onClick={() => onChange(o.value)}
           className={cx(
-            'relative h-8 rounded-full px-3.5 text-[13px] font-medium transition-colors',
+            'relative h-8 rounded-full px-3.5 text-ui font-medium transition-colors',
             value === o.value ? 'text-ink' : 'text-ink-3 hover:text-ink-2',
           )}
         >
@@ -174,7 +174,7 @@ export function Tooltip({ label, children, side = 'right' }: { label: string; ch
 export function SectionTitle({ title, action, className }: { title: ReactNode; action?: ReactNode; className?: string }) {
   return (
     <div className={cx('flex items-center justify-between gap-3', className)}>
-      <h2 className="text-[15px] font-semibold tracking-tight text-ink">{title}</h2>
+      <h2 className="text-md font-semibold text-ink">{title}</h2>
       {action}
     </div>
   )
